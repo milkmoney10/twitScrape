@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <link rel="stylesheet" href="{% static 'css/home.css' %}">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+ {% for i in profiles %}
+ {% for a, y in i.items %}
+ <div class='profile-section'>
+ <p class='searched-user'>{{a}}</p>
+ {% for x in y %}
+ <!-- <p>{{x}}</p> -->
+ <div class='results'>
+  <p style="margin-bottom: 10px">{{x.name}}</p>
+  <a href="https://www.twitter.com/{{x.username}}">@{{x.username}}</a>
+  <p style="margin-top: 10px" class='description'>{{x.description}}</p>
+  <!-- <a href="https://www.twitter.com/{{x.username}}">twitter.com/{{x.username}}</a> -->
+ </div>
+
+ <!-- <p>---------------------------------------------------------</p> -->
+
+ {% endfor %}
+ {% endfor %}
+</div>
+ {% endfor %}
+</body>
+</html>
